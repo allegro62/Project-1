@@ -26,19 +26,9 @@ node {
         }
     }
     stage('Push image') {
-        /* 
-			You would need to first register with DockerHub before you can push images to your account
-		
-        docker.withRegistry('https://registry.hub.docker.com', 'docker-hub') {
-            app.push("${env.BUILD_NUMBER}")
-            app.push("latest")
-            } */
-                echo "Trying to Push Docker Build to DockerHub"
-	    
-	    //withDockerRegistry(credentialsId: 'dokcerid', url: 'https://hub.docker.com/') {
+            echo "Trying to Push Docker Build to DockerHub"
 	    sh label: 'Docker Login', script: 'docker login --username "rajesh622" --password "abc_12345"'
     	    app.push("${env.BUILD_NUMBER}")
             app.push("latest")
-	//}
     }
 }

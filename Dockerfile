@@ -1,7 +1,22 @@
 # use a node base image
-FROM node:7-onbuild
+FROM node:10
 
-# install docker client 
+
+# Create app directory
+WORKDIR /usr/src/app
+
+# Install app dependencies
+# A wildcard is used to ensure both package.json AND package-lock.json are copied
+# where available (npm@5+)
+COPY package.json ./
+
+RUN npm install
+
+RUN npm install express
+
+# Bundle app source
+COPY . .
+
 
   
 # set maintainer
@@ -15,3 +30,5 @@ HEALTHCHECK --interval=5s \
 
 # tell docker what port to expose
 EXPOSE 8000
+
+CMD [ "node", "main.js" ]

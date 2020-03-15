@@ -18,6 +18,10 @@
   ],
   "author": "RAJESH SHARMA",
   "license": "GNU",
-  "devDependencies": { "test": ">=0.6.0" }
+  "devDependencies": {
+    "test": ">=0.6.0"
+  },
+  "dependencies": {
+    "expresss": "0.0.0"
+  }
 }
-
