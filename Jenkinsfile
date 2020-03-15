@@ -28,7 +28,7 @@ node {
     }
     stage('Push image') {
             echo "Trying to Push Docker Build to DockerHub"
-	    sh label: 'Docker Login', script: 'docker login --username "rajesh622" --password "abc_12345"'
+	    sh label: 'Docker Login', script: 'docker login --username "rajesh622" --password "******"'
     	    app.push("${env.BUILD_NUMBER}")
             app.push("latest")
     }
